@@ -5,4 +5,4 @@ import chalk from 'chalk';
 // chalk est la librairie permettant de specifier
 // la couleur du rendu affiche sur la console
 
-console.log(chalk.green('Starting app in dev mode...'));
+console.log(chalk.green('Starting app in dev mode...'));  // eslint-disable-line no-console
