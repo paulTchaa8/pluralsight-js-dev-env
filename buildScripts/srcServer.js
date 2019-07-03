@@ -15,6 +15,17 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
+    // an end point that returns users data..
+  app.get('/users', function(req, res){
+    // Hard code for simplicity. Pretends this hits a database..
+    res.json([
+      {"id": 1, "firstName": "Bob", "lastName": "Smith", "email": "bob@yahoo.com"},
+      {"id": 2, "firstName": "Paul", "lastName": "Tcha'a", "email": "paultchaa@gmail.com"},
+      {"id": 3, "firstName": "Tina", "lastName": "Lee", "email": "tina.lee@hotmail.com"}
+    ]);
+  });
+
+
 // we want to say to express which root it should handle..
 
 app.get('/', function(req, res){
