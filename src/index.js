@@ -1,4 +1,4 @@
-import {getUsers} from './api/userApi';
+import {getUsers, deleteUser} from './api/userApi';
 
 getUsers().then(result => {
     let userBody = "";
@@ -13,7 +13,23 @@ getUsers().then(result => {
       </tr>`;
     });
 
-    window.document.getElementById('users').innerHTML = userBody;
+    global.document.getElementById('users').innerHTML = userBody;
+
+    const deleteLinks = global.document.getElementsByClassName('deleteUser');
+
+    // Must use array.from to create a real array from a DOM collection
+    Array.from(deleteLinks, link => {
+      link.onclick = function(event) {
+        const element = event.target;
+        event.preventDefault();
+        deleteUser(element.attributes["data-id"].value);
+
+        const row = element.parentNode.parentNode;
+
+        row.parentNode.removeChild(row);
+      };
+
+    });
 });
 
 

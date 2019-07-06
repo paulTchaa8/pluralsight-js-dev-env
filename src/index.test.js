@@ -1,5 +1,6 @@
-import {expect} from' Chai';
+/*eslint(import/no-unresolved)*/
 import jsdom from 'jsdom';
+import {expect} from 'Chai';
 import fs from 'fs';              // File System coming with node..
 
 describe('Our first test', () => {
